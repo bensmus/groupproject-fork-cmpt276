@@ -1,0 +1,57 @@
+html {
+	margin: auto;
+	text-align: center;
+}
+
+canvas {
+	width: 100%; /* Makes canvas resizable! */
+	max-width: 500px;
+}
+
+.flex-container {
+	display: flex;
+	flex-direction: row;
+	position: fixed;
+	left: 15%;
+	width: 70%;
+	height: 70%;
+}
+
+.flex-container > .col {
+	padding: 20px;
+}
+
+.flex-container > .left {
+	border: 5px solid green;
+	width: 75%;
+}
+
+.flex-container > .right {
+	text-align: left;
+	border: 5px solid black;
+	border-left: none;
+	width: 25%;
+}
+
+#back {
+	padding: 20px;
+	padding-top: none;
+	float: left;
+}
+
+input[type=submit], #lastUnlockedInput {
+	visibility: hidden;
+}
+
+#coin_disp {
+	float:right;
+}
+
+/* Hide buttons and inputs - will get shown in JS based on unlocked array */
+button, input,  span[class$="radio"], span[id$="insufficient"]{
+	display: none;
+}
+
+.blue_radio, .noglasses_radio {
+	display: inline !important;
+}

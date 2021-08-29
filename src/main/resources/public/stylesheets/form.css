@@ -1,0 +1,132 @@
+html{ 
+    color: rgb(230, 230, 230);
+    background-color: rgb(31, 31, 31);
+    height: 100vh;
+    margin: 0px;
+}
+
+body{
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face{
+    font-family: Signpainter;
+    src: url("/stylesheets/SIGNPAINTER-HOUSESCRIPT.woff") format("woff");
+}
+
+h1{
+    font-family: Signpainter;
+    text-rendering: optimizeLegibility;
+    font-size: 80px;
+    color: #fff;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+a {
+    color: rgb(0, 102, 255);
+  }
+
+.error {
+    color: crimson;
+}
+.content {
+    height: 100vh;
+    margin: auto;
+    padding-inline: 20px;
+    background: url("/images/bg1.jpg") center no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+.content input[type="text"], .content input[type="password"] {
+    width: 270px;
+    height: 42px;
+    color: #ffffff;
+    background: rgba(45, 45, 45, .15);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, .15);
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1) inset;
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1) inset;
+    -moz-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1) inset;
+    margin-bottom: 25px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    text-indent: 10px;
+    outline: none;
+}
+
+.content .form {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    animation: fade 1s ease-in-out;
+}
+
+.content .form form {
+    margin-top: 30px;
+}
+
+.content .title {
+    font-family: Signpainter;
+    text-rendering: optimizeLegibility;
+    font-size: 50px;
+    color: #fff;
+    text-align: left;
+    padding-top: 10px
+}
+
+form input[type=submit] {
+    background: #605c5a;
+    width: 276px;
+    height: 44px;
+    box-shadow: 0 15px 30px 0 rgba(255, 255, 255, .25) inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
+    -webkit-box-shadow: 0 15px 30px 0 rgba(255, 255, 255, .25) inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 15px 30px 0 rgba(255, 255, 255, .25) inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
+    border: 0px;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.form-field {
+    text-align: left;
+    margin-bottom: 25px;
+    margin-top: -15px;
+}
+
+.form-field em {
+    vertical-align: 2px;
+}
+
+.content .form .link {
+    width: 276px;
+    margin: 10px auto;
+    text-align: left;
+}
+
+.content .form .link a {
+    color: #ffffff;
+}
+
+.inner-fragment {
+    width: 276px;
+    margin: 0 auto;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+        top: 10%;
+    }
+    100% {
+        opacity: 1;
+        top: 35%;
+    }
+}
+/* test, because not updating to heroku */

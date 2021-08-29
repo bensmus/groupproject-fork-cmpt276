@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/leaderboard.css" />
+        <title>Leaderboard</title>
+    </head>
+
+    <body onload="lookForUser()">
+    <h1>Leaderboard</h1>
+    <div class="content">
+        <div class="bar">
+            <form action="#" method="post" th:action="@{/leaderboardSearch}" th:object="${user}">
+                <a id="back" th:href="@{/game}">back</a> 
+                <input type="text" th:field="*{uname}" placeholder="username">
+                <input type="submit" value="search">
+            </form>
+        </div>
+        
+
+            <table id="table">
+                <tr>
+                    <th>Place</th><th>Name</th><th>Highscore</th>
+                </tr>
+                <div id="tableData">
+                    <th:block th:each="record : ${records}">
+                        <tr>
+                            <td th:text="${record.getPlace()}"></td>
+                            <td th:text="${record.getUname()}"></td>
+                            <td th:text="${record.getHighscore()}"></td>
+                        </tr>
+                    </th:block>
+                </div>
+            </table>
+        </div>
+
+        <script th:inline="javascript">
+            var uname = /*[[${user.getUname()}]]*/ 'guest';
+            if(!uname){
+                uname="guest";
+            }
+            function lookForUser(){
+                var table = document.getElementById("table");
+                if (table.rows.length == 1) {
+                    document.getElementById("table").insertRow().innerHTML="<p>No results</p>";
+                }else{
+                    for(i=0; row=table.rows[i]; i++){
+                        if(row.cells[1].innerHTML == uname){
+                            row.cells[1].innerHTML= "<b>" + row.cells[1].innerHTML + " (you)</b>";
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

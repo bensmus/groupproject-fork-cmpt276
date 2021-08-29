@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/form.css" />
+
+	<title>Speedboy</title>
+
+</head>
+
+<body>
+    <div class="content">
+        <div class="title">Speedboy</div>
+        <div class="form">
+            <h1>Log In</h1>
+
+            <div class=error th:text="${loginError}"></div>
+            <form action="#" method="post" th:action="@{/login}" th:object="${user}">
+
+                <!-- FRAGMENT!!! Common code between login and signup -->
+                <div th:replace="fragments/login_signup :: login_signup"></div>
+
+            </form>
+            <div class="link">
+                <a th:href="@{/signup}">Don't have an account?</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>

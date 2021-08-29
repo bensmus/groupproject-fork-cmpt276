@@ -1,0 +1,42 @@
+html{ 
+    color: rgb(230, 230, 230);
+    background-color: rgb(31, 31, 31);
+    height: 100vh;
+    margin: 0px;
+}
+
+h1{
+    font-family: Signpainter;
+    text-rendering: optimizeLegibility;
+    font-size: 80px;
+    color: #fff;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+a {
+    color: rgb(0, 102, 255);
+    margin-right: 500px;
+  }
+
+table, th, td {
+    padding: 5px;
+    padding-inline: 20px;
+    margin: auto;
+    text-align: center;
+    border: 1px solid snow;
+    border-collapse: collapse;
+}
+
+table {
+    border: 2px solid snow;
+    width: 800px;
+}
+
+form {
+    margin: auto;
+    text-align: center;
+}

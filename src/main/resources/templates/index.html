@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/form.css" />
+	<title>Speedboy</title>
+</head>
+
+<body>
+	<div class="content">
+		<header>
+			<h1>Speedboy</h1>
+		</header>
+
+		<!-- <a class="graybutton" th:href="@{/login}">login/signup</a> <br></br>
+		<a th:href="@{/game}">play as a guest</a> -->
+
+		<br>
+		<form action="#" method="get" th:action="@{/login}">
+			<input type="submit" value="Log In">
+		</form>
+		<br>
+		<form action="#" method="get" th:action="@{/signup}">
+			<input type="submit" value="Sign Up">
+		</form>
+		<br>
+		<form action="#" method="get" th:action="@{/game}">
+			<input type="submit" value="Play as Guest">
+		</form>
+	</div>
+</body>
+
+</html>

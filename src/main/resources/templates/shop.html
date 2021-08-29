@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+  <link rel="stylesheet" href=stylesheets/shop.css>
+  </link>
+</head>
+
+<body>
+  <h1>Shop</h1>
+  <div class="flex-container">
+    <a id="back" th:href="@{/game}">back</a>
+    <div class="left col">
+      <canvas id="canvas" width=700px height=700px></canvas>
+    </div>
+    <div class="right col">
+      <div id="coin_disp"></div>
+      <form id="radio_form" action="#" method="POST" th:action="@{/shop}" th:object="${user}">
+        <strong>Colors</strong><br>
+
+        <input class="blue_radio" id="blue_radio" type="radio" name="color" value="blue" th:field="*{color}" checked>
+        <span class="blue_radio">Blue</span><br>
+
+        <input class="green_radio" id="green_radio" type="radio" name="color" value="green" th:field="*{color}">
+        <span class="green_radio">Green</span>
+        <button id="green_unlock">Unlock green for 10 coins!</button>
+        <span id="green_insufficient">Green costs 10 coins.</span><br>
+
+        <input class="pink_radio" id="pink_radio" type="radio" name="color" value="pink" th:field="*{color}">
+        <span class="pink_radio">Pink</span>
+        <button id="pink_unlock">Unlock pink for 20 coins!</button>
+        <span id="pink_insufficient">Pink costs 20 coins.</span><br>
+        <br>
+
+        <strong>Glasses</strong><br>
+        <input class="noglasses_radio" id="noglasses_radio" type="radio" name="glasses" value="noglasses"
+          th:field="*{glasses}" checked>
+        <span class="noglasses_radio">No</span><br>
+
+        <input class="yesglasses_radio" id="yesglasses_radio" type="radio" name="glasses" value="glasses"
+          th:field="*{glasses}">
+        <span class="yesglasses_radio">Yes</span>
+        <button id="glasses_unlock">Unlock glasses for 30 coins!</button>
+        <span id="glasses_insufficient">Glasses costs 30 coins.</span><br>
+
+        <!-- Hidden via CSS, input that maps to lastUnlocked field, proc'd when button -->
+        <input id="lastUnlockedInput" type="text" value="" th:field="*{lastUnlocked}">
+
+        <!-- Hidden via CSS, gets submitted through JS -->
+        <input id="submitButton" type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+
+</body>
+
+<!-- Getting information from the user object in the model -->
+<script th:inline="javascript">
+  var color = /*[[${user.getColor()}]]*/ "blue";
+  var glasses = /*[[${user.getGlasses()}]]*/ "noglasses";
+  var characterFileName = `images/shop/${color}_${glasses}.png`;
+  var unlocked = /*[[${user.getUnlocked()}]]*/ {};
+  var coins = /*[[${user.getCoins()}]]*/ 0;
+  var prices = /*[[${prices}]]*/ {};
+</script>
+
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+
+<script src="scripts/shop.js"></script>
+
+</html>

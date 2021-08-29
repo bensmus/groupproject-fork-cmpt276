@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/game.css" />
+	<title>Speedboy</title>
+</head>
+
+<body onload="setupGame()">
+	<div class="background">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+	<!--        <h1>game page</h1>-->
+	<p th:text="'Welcome ' + ${user.getUname()} + ', good to see you. Try to avoid the walls and pits for as long as possible.'"></p>
+	<p> controls: (ENTER) to start the game, (SPACE) to jump, (ESC) to pause</p>
+	<br>
+	<div>
+		<a class="game-btn shop" th:href="@{/shop}">Shop</a>
+		<a class="game-btn leaderboard" th:href="@{/leaderboard}">Leaderboard</a>
+	</div>
+	<audio controls autoplay loop src="audio/background.wav"></audio>
+	<audio id="deathAudio" src="audio/death.mp3"></audio>
+
+	<div id="subDiv">
+		<form id="submitForm" action="#" method="post" th:action="@{/game}" th:object="${user}">
+			<input id="hs" type="hidden" th:field="*{highscore}">
+			<input id="un" type="hidden" th:field="*{uname}">
+			<input id="coins" type="hidden" th:field="*{coins}">
+		</form>
+
+	</div>
+
+	<!-- Getting information from the user object in the model -->
+	<script th:inline="javascript">
+		var uname = /*[[${user.getUname()}]]*/ 'guest';
+		var highscore = /*[[${user.getHighscore()}]]*/ '0';
+		var color = /*[[${user.getColor()}]]*/ "blue";
+		var glasses = /*[[${user.getGlasses()}]]*/ "noglasses";
+		var spriteFileName = `images/game/${color}_${glasses}.png`;
+		var coins = /*[[${user.getCoins()}]]*/ 0;
+	</script>
+
+	<script src="/scripts/game/current_weather.js" defer></script>
+	<script src="/scripts/game/component.js" defer></script>
+	<script src="/scripts/game/game.js" defer></script>
+</body>
+
+</html>

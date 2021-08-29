@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- FRAGMENT!!! -->
+    <div class="inner-fragment" th:fragment="login_signup">
+
+        <!-- Username -->
+        <!-- <label>username: </label>-->
+        <input type="text" th:field="*{uname}" placeholder="username"><br>
+
+        <!-- Raw Password -->
+        <!-- <label>password: </label>-->
+        <input id="passwordInput" type="password" placeholder="password"><br>
+
+        <!-- Encrypted Password -->
+        <input id="passwordEncrypted" type="hidden" th:field="*{pass}">
+
+        <!-- Password visibility checkbox -->
+        <div class="form-field">
+            <input type="checkbox" onclick="togglePassword()">
+            <em style="font-size: small;">Show Password</em>
+        </div>
+
+        <input type="submit" value="Submit">
+
+
+        <!-- url of scripts relative to public folder -->
+
+        <!-- script: toggle password with checkbox -->
+        <script src="/scripts/togglePassword.js"></script>
+
+        <!-- script: set value of passwordEncrypted based on passwordInput -->
+        <script src="/scripts/encryptPassword.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+        <!-- ^^^ Both cdn scripts are necessary-->
+
+    </div>
+
+</body>
+
+</html>
